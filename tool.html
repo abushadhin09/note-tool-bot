@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>NOTE TOOL</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  margin:0;
+  font-family:Tahoma;
+  background:#050b12;
+  color:#00ffee;
+}
+header{
+  text-align:center;
+  padding:20px;
+  border-bottom:2px solid #00ffee;
+}
+header img{
+  width:70px;
+  border-radius:50%;
+}
+.card{
+  background:#081a24;
+  border:1px solid #00ffee;
+  margin:15px;
+  padding:15px;
+  border-radius:12px;
+}
+input,button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  border-radius:8px;
+}
+input{background:#000;color:#00ffee;}
+button{
+  background:#00ffee;
+  color:#000;
+  font-weight:bold;
+}
+.lock{
+  opacity:0.4;
+}
+.notice{
+  background:#220000;
+  border:1px solid red;
+  color:#ff4444;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <img id="logo">
+  <h2>NOTE TOOL</h2>
+</header>
+
+<div class="card notice" id="noticeBox"></div>
+
+<div class="card">
+  <input id="number" placeholder="Enter Number">
+  <button onclick="check()">Check Info</button>
+  <p id="result"></p>
+</div>
+
+<div class="card">
+  <h3>OTP Test (Demo)</h3>
+  <input id="otpCount" placeholder="How many OTP">
+  <button onclick="otp()">Send OTP</button>
+  <p id="otpResult"></p>
+</div>
+
+<div class="card lock">
+  <h3>SMS Feature</h3>
+  <p>🔒 Locked | Coming Soon</p>
+</div>
+
+<script>
+const API="https://note-tool-bot.onrender.com/settings";
+
+async function load(){
+  const r=await fetch(API);
+  const s=await r.json();
+
+  if(!s.toolStatus){
+    document.body.innerHTML="<h2 style='color:red;text-align:center'>TOOL OFF</h2>";
+    return;
+  }
+
+  document.body.style.setProperty("--theme",s.themeColor);
+  document.getElementById("noticeBox").innerText=s.notice||"";
+  document.getElementById("logo").src=s.logo||"";
+}
+load();
+setInterval(load,3000);
+
+function check(){
+  document.getElementById("result").innerText=
+  "✔ Number valid\n✔ Country: BD\n✔ Type: Mobile";
+}
+function otp(){
+  document.getElementById("otpResult").innerText=
+  "✅ "+otpCount.value+" OTP request simulated";
+}
+</script>
+
+</body>
+</html>
