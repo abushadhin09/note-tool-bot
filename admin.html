@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ADMIN PANEL</title>
+<meta name="viewport" content="width=device-width">
+<style>
+body{
+  background:#000;
+  color:#00ffcc;
+  font-family:Tahoma;
+  padding:20px;
+}
+.card{
+  border:1px solid #00ffcc;
+  padding:15px;
+  margin-bottom:15px;
+  border-radius:10px;
+}
+input,button{
+  width:100%;
+  padding:10px;
+  margin-top:8px;
+  border:none;
+  border-radius:6px;
+}
+button{
+  background:#00ffcc;
+  color:#000;
+  font-weight:bold;
+}
+.hidden{display:none;}
+h2{text-align:center;}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginBox" class="card">
+  <h2>ADMIN LOGIN</h2>
+  <input type="password" id="pass" placeholder="Enter Admin Password">
+  <button onclick="login()">LOGIN</button>
+  <p id="msg" style="color:red;text-align:center;"></p>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel" class="hidden">
+
+<h2>ADMIN CONTROL</h2>
+
+<div class="card">
+  <button onclick="save({toolStatus:true})">TOOL ON</button>
+  <button onclick="save({toolStatus:false})">TOOL OFF</button>
+</div>
+
+<div class="card">
+  <input id="notice" placeholder="Notice text">
+  <button onclick="save({notice:notice.value})">Save Notice</button>
+</div>
+
+<div class="card">
+  <input id="logo" placeholder="Logo URL">
+  <button onclick="save({logo:logo.value})">Update Logo</button>
+</div>
+
+<div class="card">
+  <input id="theme" placeholder="#00ffee">
+  <button onclick="save({themeColor:theme.value})">Theme Color</button>
+</div>
+
+</div>
+
+<script>
+const ADMIN_PASS = "cyber71of696";
+const API="https://note-tool-bot.onrender.com/update";
+const KEY="ADMIN_SECRET_123";
+
+function login(){
+  if(pass.value === ADMIN_PASS){
+    loginBox.style.display="none";
+    adminPanel.classList.remove("hidden");
+  }else{
+    msg.innerText="❌ Wrong Password";
+  }
+}
+
+async function save(d){
+  d.key=KEY;
+  const r=await fetch(API,{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(d)
+  });
+  alert(r.ok?"✅ Saved Successfully":"❌ Error");
+}
+</script>
+
+</body>
+</html>
