@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Developer Hare - Bangladesh's premier platform for buying and selling website code, templates, and web solutions. Founded by Owner Shadhin.">
+    <meta name="keywords" content="website code, templates, Bangladesh, web development, buy website, sell website, Owner Shadhin">
+    <title>Developer Hare | Buy & Sell Website Code in Bangladesh</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bd-green: #006A4E;
+            --bd-red: #F42A41;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --accent: #00B894;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--bd-green) 0%, var(--dark) 100%);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            background: linear-gradient(135deg, var(--bd-green) 0%, #004d38 100%);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bd-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--bd-red);
+        }
+
+        .lang-switch {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switch:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--bd-green) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 150px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .owner-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--bd-red);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(244, 42, 65, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: #d32337;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244, 42, 65, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--bd-green);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--bd-green);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--bd-red);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 106, 78, 0.2);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--bd-green), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .feature-card h3 {
+            color: var(--bd-green);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .showcase-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .showcase-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .showcase-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--bd-green), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .showcase-image::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        .showcase-content {
+            padding: 1.5rem;
+        }
+
+        .showcase-card h3 {
+            color: var(--bd-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .showcase-card .price {
+            color: var(--bd-red);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .showcase-card .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: var(--light);
+            color: var(--bd-green);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--bd-red), #ff6b81);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 4px 15px rgba(244, 42, 65, 0.3);
+        }
+
+        .step-card h3 {
+            color: var(--bd-green);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.featured {
+            border: 3px solid var(--bd-green);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'জনপ্রিয়';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--bd-red);
+            color: var(--white);
+            padding: 0.3rem 2rem;
+            transform: rotate(45deg);
+            font-size: 0.85rem;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .pricing-card h3 {
+            color: var(--bd-green);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            color: var(--bd-red);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .pricing-card .price span {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--light);
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--bd-green) 0%, var(--dark) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--bd-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--bd-red);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--bd-red);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--bd-green);
+            transform: translateY(-3px);
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .payment-badge {
+            background: var(--white);
+            color: var(--bd-green);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--bd-green);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .scroll-top.visible {
+            display: flex;
+        }
+
+        .scroll-top:hover {
+            background: var(--bd-red);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: var(--dark);
+                padding: 1rem 0;
+                margin-top: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        .bd-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image: repeating-linear-gradient(
+                45deg,
+                var(--bd-red) 0px,
+                var(--bd-red) 10px,
+                transparent 10px,
+                transparent 20px,
+                var(--bd-green) 20px,
+                var(--bd-green) 30px,
+                transparent 30px,
+                transparent 40px
+            );
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--white);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🐰</div>
+                <span>Developer Hare</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" data-en="Home" data-bn="হোম">Home</a></li>
+                <li><a href="#features" data-en="Features" data-bn="বৈশিষ্ট্য">Features</a></li>
+                <li><a href="#showcase" data-en="Showcase" data-bn="প্রদর্শনী">Showcase</a></li>
+                <li><a href="#how-it-works" data-en="How It Works" data-bn="কীভাবে কাজ করে">How It Works</a></li>
+                <li><a href="#pricing" data-en="Pricing" data-bn="মূল্য">Pricing</a></li>
+                <li><a href="#contact" data-en="Contact" data-bn="যোগাযোগ">Contact</a></li>
+                <li><button class="lang-switch" id="langSwitch" onclick="toggleLanguage()">বাংলা</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="bd-pattern"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="owner-badge" data-en="Founded by Owner Shadhin" data-bn="প্রতিষ্ঠাতা: ওনার শাধীন">Founded by Owner Shadhin</div>
+                <h1 data-en="Welcome to Developer Hare" data-bn="ডেভেলপার হেয়ারে স্বাগতম">Welcome to Developer Hare</h1>
+                <p class="subtitle" data-en="Bangladesh's #1 Marketplace for Buying & Selling Premium Website Code and Templates" data-bn="বাংলাদেশের #১ প্রিমিয়াম ওয়েবসাইট কোড এবং টেমপ্লেট কেনাবেচার মার্কেটপ্লেস">Bangladesh's #1 Marketplace for Buying & Selling Premium Website Code and Templates</p>
+                <div class="cta-buttons">
+                    <a href="#showcase" class="btn btn-primary" data-en="Browse Code" data-bn="কোড ব্রাউজ করুন">Browse Code</a>
+                    <a href="#how-it-works" class="btn btn-secondary" data-en="Start Selling" data-bn="বিক্রয় শুরু করুন">Start Selling</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--light);">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-label" data-en="Code Templates" data-bn="কোড টেমপ্লেট">Code Templates</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="1200">0</div>
+                    <div class="stat-label" data-en="Happy Customers" data-bn="সন্তুষ্ট গ্রাহক">Happy Customers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="150">0</div>
+                    <div class="stat-label" data-en="Verified Sellers" data-bn="যাচাইকৃত বিক্রেতা">Verified Sellers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="98">0</div>
+                    <div class="stat-label" data-en="Satisfaction Rate" data-bn="সন্তুষ্টির হার">Satisfaction Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="features">
+        <div class="container">
+            <h2 class="section-title" data-en="Why Choose Developer Hare?" data-bn="কেন ডেভেলপার হেয়ার বেছে নেবেন?">Why Choose Developer Hare?</h2>
+            <p class="section-subtitle" data-en="The most trusted platform for web developers in Bangladesh" data-bn="বাংলাদেশে ওয়েব ডেভেলপারদের সবচেয়ে বিশ্বস্ত প্ল্যাটফর্ম">The most trusted platform for web developers in Bangladesh</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3 data-en="Premium Quality" data-bn="প্রিমিয়াম মান">Premium Quality</h3>
+                    <p data-en="All code is reviewed and tested by our expert team to ensure top-notch quality and performance." data-bn="শীর্ষমানের এবং কর্মক্ষমতা নিশ্চিত করতে আমাদের বিশেষজ্ঞ দল দ্বারা সমস্ত কোড পর্যালোচনা এবং পরীক্ষা করা হয়।">All code is reviewed and tested by our expert team to ensure top-notch quality and performance.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 data-en="Secure Transactions" data-bn="নিরাপদ লেনদেন">Secure Transactions</h3>
+                    <p data-en="Safe and secure payment system with local BD payment methods including bKash, Nagad, and Rocket." data-bn="বিকাশ, নগদ এবং রকেট সহ স্থানীয় BD পেমেন্ট পদ্ধতির সাথে নিরাপদ পেমেন্ট সিস্টেম।">Safe and secure payment system with local BD payment methods including bKash, Nagad, and Rocket.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 data-en="Instant Delivery" data-bn="তাৎক্ষণিক সরবরাহ">Instant Delivery</h3>
+                    <p data-en="Get your purchased code instantly with complete documentation and lifetime updates." data-bn="সম্পূর্ণ ডকুমেন্টেশন এবং আজীবন আপডেট সহ তাৎক্ষণিকভাবে আপনার ক্রয়কৃত কোড পান।">Get your purchased code instantly with complete documentation and lifetime updates.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3 data-en="24/7 Support" data-bn="২৪/৭ সহায়তা">24/7 Support</h3>
+                    <p data-en="Dedicated Bengali and English speaking support team available round the clock to assist you." data-bn="আপনাকে সহায়তা করার জন্য ২৪ ঘন্টা উপলব্ধ বাংলা এবং ইংরেজি ভাষী সাপোর্ট টিম।">Dedicated Bengali and English speaking support team available round the clock to assist you.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 data-en="Best Prices" data-bn="সেরা দাম">Best Prices</h3>
+                    <p data-en="Competitive pricing with special discounts for bulk purchases and regular customers." data-bn="বাল্ক ক্রয় এবং নিয়মিত গ্রাহকদের জন্য বিশেষ ছাড় সহ প্রতিযোগিতামূলক মূল্য।">Competitive pricing with special discounts for bulk purchases and regular customers.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 data-en="Customization" data-bn="কাস্টমাইজেশন">Customization</h3>
+                    <p data-en="Request custom modifications and get personalized solutions tailored to your specific needs." data-bn="কাস্টম পরিবর্তনের জন্য অনুরোধ করুন এবং আপনার নির্দিষ্ট চাহিদা অনুসারে ব্যক্তিগতকৃত সমাধান পান।">Request custom modifications and get personalized solutions tailored to your specific needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="showcase" style="background: var(--light);">
+        <div class="container">
+            <h2 class="section-title" data-en="Featured Templates" data-bn="বৈশিষ্ট্যযুক্ত টেমপ্লেট">Featured Templates</h2>
+            <p class="section-subtitle" data-en="Explore our collection of premium website templates and code" data-bn="আমাদের প্রিমিয়াম ওয়েবসাইট টেমপ্লেট এবং কোডের সংগ্রহ অন্বেষণ করুন">Explore our collection of premium website templates and code</p>
+            
+            <div class="showcase-grid">
+                <div class="showcase-card">
+                    <div class="showcase-image">🛒</div>
+                    <div class="showcase-content">
+                        <h3 data-en="E-Commerce Platform" data-bn="ই-কমার্স প্ল্যাটফর্ম">E-Commerce Platform</h3>
+                        <p data-en="Full-featured online shop with payment gateway integration" data-bn="পেমেন্ট গেটওয়ে ইন্টিগ্রেশন সহ সম্পূর্ণ অনলাইন শপ">Full-featured online shop with payment gateway integration</p>
+                        <div class="price">৳ 15,000</div>
+                        <div class="tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Responsive</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-image">📱</div>
+                    <div class="showcase-content">
+                        <h3 data-en="Restaurant Website" data-bn="রেস্টুরেন্ট ওয়েবসাইট">Restaurant Website</h3>
+                        <p data-en="Modern restaurant template with online ordering system" data-bn="অনলাইন অর্ডারিং সিস্টেম সহ আধুনিক রেস্তোরাঁ টেমপ্লেট">Modern restaurant template with online ordering system</p>
+                        <div class="price">৳ 8,500</div>
+                        <div class="tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-image">💼</div>
+                    <div class="showcase-content">
+                        <h3 data-en="Business Portfolio" data-bn="ব্যবসায়িক পোর্টফোলিও">Business Portfolio</h3>
+                        <p data-en="Professional portfolio website for agencies and freelancers" data-bn="এজেন্সি এবং ফ্রিল্যান্সারদের জন্য পেশাদার পোর্টফোলিও ওয়েবসাইট">Professional portfolio website for agencies and freelancers</p>
+                        <div class="price">৳ 6,000</div>
+                        <div class="tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-image">🎓</div>
+                    <div class="showcase-content">
+                        <h3 data-en="Learning Management" data-bn="লার্নিং ম্যানেজমেন্ট">Learning Management</h3>
+                        <p data-en="Complete LMS platform for online courses and training" data-bn="অনলাইন কোর্স এবং প্রশিক্ষণের জন্য সম্পূর্ণ LMS প্ল্যাটফর্ম">Complete LMS platform for online courses and training</p>
+                        <div class="price">৳ 25,000</div>
+                        <div class="tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Advanced</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-image">🏥</div>
+                    <div class="showcase-content">
+                        <h3 data-en="Healthcare Portal" data-bn="হেলথকেয়ার পোর্টাল">Healthcare Portal</h3>
+                        <p data-en="Medical appointment and patient management system" data-bn="মেডিকেল অ্যাপয়েন্টমেন্ট এবং রোগী ব্যবস্থাপনা সিস্টেম">Medical appointment and patient management system</p>
+                        <div class="price">৳ 20,000</div>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-image">🎨</div>
+                    <div class="showcase-content">
+                        <h3 data-en="Creative Agency" data-bn="ক্রিয়েটিভ এজেন্সি">Creative Agency</h3>
+                        <p data-en="Stunning agency website with portfolio showcase" data-bn="পোর্টফোলিও প্রদর্শনী সহ অত্যাশ্চর্য এজেন্সি ওয়েবসাইট">Stunning agency website with portfolio showcase</p>
+                        <div class="price">৳ 12,000</div>
+                        <div class="tags">
+                            <span class="tag">WordPress</span>
+                            <span class="tag">Elementor</span>
+                            <span class="tag">Premium</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title" data-en="How It Works" data-bn="কীভাবে কাজ করে">How It Works</h2>
+            <p class="section-subtitle" data-en="Simple process for buyers and sellers" data-bn="ক্রেতা এবং বিক্রেতাদের জন্য সহজ প্রক্রিয়া">Simple process for buyers and sellers</p>
+            
+            <h3 style="text-align: center; color: var(--bd-green); margin-top: 3rem; margin-bottom: 2rem;" data-en="For Buyers" data-bn="ক্রেতাদের জন্য">For Buyers</h3>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 data-en="Browse Templates" data-bn="টেমপ্লেট ব্রাউজ করুন">Browse Templates</h3>
+                    <p data-en="Explore our vast collection of premium website templates and code" data-bn="আমাদের বিশাল সংগ্রহের প্রিমিয়াম ওয়েবসাইট টেমপ্লেট এবং কোড অন্বেষণ করুন">Explore our vast collection of premium website templates and code</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 data-en="Select & Purchase" data-bn="নির্বাচন এবং ক্রয়">Select & Purchase</h3>
+                    <p data-en="Choose your template and complete secure payment via bKash, Nagad, or Rocket" data-bn="আপনার টেমপ্লেট চয়ন করুন এবং বিকাশ, নগদ বা রকেটের মাধ্যমে নিরাপদ পেমেন্ট সম্পূর্ণ করুন">Choose your template and complete secure payment via bKash, Nagad, or Rocket</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 data-en="Download & Deploy" data-bn="ডাউনলোড এবং স্থাপন">Download & Deploy</h3>
+                    <p data-en="Get instant access to code with documentation and deploy to your server" data-bn="ডকুমেন্টেশন সহ কোডে তাৎক্ষণিক অ্যাক্সেস পান এবং আপনার সার্ভারে স্থাপন করুন">Get instant access to code with documentation and deploy to your server</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3 data-en="Get Support" data-bn="সহায়তা পান">Get Support</h3>
+                    <p data-en="Enjoy lifetime updates and dedicated support from our expert team" data-bn="আমাদের বিশেষজ্ঞ দলের থেকে আজীবন আপডেট এবং নিবেদিত সহায়তা উপভোগ করুন">Enjoy lifetime updates and dedicated support from our expert team</p>
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; color: var(--bd-green); margin-top: 4rem; margin-bottom: 2rem;" data-en="For Sellers" data-bn="বিক্রেতাদের জন্য">For Sellers</h3>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 data-en="Register Account" data-bn="অ্যাকাউন্ট নিবন্ধন">Register Account</h3>
+                    <p data-en="Create your seller account and complete verification process" data-bn="আপনার বিক্রেতা অ্যাকাউন্ট তৈরি করুন এবং যাচাইকরণ প্রক্রিয়া সম্পূর্ণ করুন">Create your seller account and complete verification process</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 data-en="Upload Code" data-bn="কোড আপলোড করুন">Upload Code</h3>
+                    <p data-en="Submit your code with description, screenshots, and documentation" data-bn="বিবরণ, স্ক্রিনশট এবং ডকুমেন্টেশন সহ আপনার কোড জমা দিন">Submit your code with description, screenshots, and documentation</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 data-en="Get Approved" data-bn="অনুমোদন পান">Get Approved</h3>
+                    <p data-en="Our team reviews and approves quality code within 24-48 hours" data-bn="আমাদের টিম ২৪-৪৮ ঘন্টার মধ্যে মানসম্মত কোড পর্যালোচনা এবং অনুমোদন করে">Our team reviews and approves quality code within 24-48 hours</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3 data-en="Earn Money" data-bn="অর্থ উপার্জন করুন">Earn Money</h3>
+                    <p data-en="Start selling and receive payments directly to your bKash or bank account" data-bn="বিক্রয় শুরু করুন এবং সরাসরি আপনার বিকাশ বা ব্যাংক অ্যাকাউন্টে পেমেন্ট পান">Start selling and receive payments directly to your bKash or bank account</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="pricing" style="background: var(--light);">
+        <div class="container">
+            <h2 class="section-title" data-en="Pricing Plans" data-bn="মূল্য পরিকল্পনা">Pricing Plans</h2>
+            <p class="section-subtitle" data-en="Choose the perfect plan for your needs" data-bn="আপনার প্রয়োজনের জন্য নিখুঁত পরিকল্পনা চয়ন করুন">Choose the perfect plan for your needs</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 data-en="Buyer" data-bn="ক্রেতা">Buyer</h3>
+                    <div class="price">৳ 0 <span data-en="/month" data-bn="/মাস">/month</span></div>
+                    <ul class="pricing-features">
+                        <li data-en="Browse all templates" data-bn="সমস্ত টেমপ্লেট ব্রাউজ করুন">Browse all templates</li>
+                        <li data-en="Secure payments" data-bn="নিরাপদ পেমেন্ট">Secure payments</li>
+                        <li data-en="Instant downloads" data-bn="তাৎক্ষণিক ডাউনলোড">Instant downloads</li>
+                        <li data-en="Basic support" data-bn="মৌলিক সহায়তা">Basic support</li>
+                        <li data-en="Lifetime updates" data-bn="আজীবন আপডেট">Lifetime updates</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary" data-en="Get Started" data-bn="শুরু করুন">Get Started</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <h3 data-en="Seller Basic" data-bn="বিক্রেতা বেসিক">Seller Basic</h3>
+                    <div class="price">৳ 999 <span data-en="/month" data-bn="/মাস">/month</span></div>
+                    <ul class="pricing-features">
+                        <li data-en="Sell up to 10 items" data-bn="১০টি পর্যন্ত আইটেম বিক্রয়">Sell up to 10 items</li>
+                        <li data-en="15% commission" data-bn="১৫% কমিশন">15% commission</li>
+                        <li data-en="Seller dashboard" data-bn="বিক্রেতা ড্যাশবোর্ড">Seller dashboard</li>
+                        <li data-en="Priority support" data-bn="অগ্রাধিকার সহায়তা">Priority support</li>
+                        <li data-en="Analytics & reports" data-bn="বিশ্লেষণ এবং প্রতিবেদন">Analytics & reports</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" data-en="Start Selling" data-bn="বিক্রয় শুরু করুন">Start Selling</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 data-en="Seller Pro" data-bn="বিক্রেতা প্রো">Seller Pro</h3>
+                    <div class="price">৳ 2,499 <span data-en="/month" data-bn="/মাস">/month</span></div>
+                    <ul class="pricing-features">
+                        <li data-en="Unlimited items" data-bn="সীমাহীন আইটেম">Unlimited items</li>
+                        <li data-en="10% commission" data-bn="১০% কমিশন">10% commission</li>
+                        <li data-en="Advanced dashboard" data-bn="উন্নত ড্যাশবোর্ড">Advanced dashboard</li>
+                        <li data-en="24/7 premium support" data-bn="২৪/৭ প্রিমিয়াম সহায়তা">24/7 premium support</li>
+                        <li data-en="Featured listings" data-bn="বৈশিষ্ট্যযুক্ত তালিকা">Featured listings</li>
+                        <li data-en="Marketing tools" data-bn="মার্কেটিং টুল">Marketing tools</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary" data-en="Go Pro" data-bn="প্রো হন">Go Pro</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 data-en="Ready to Start Your Journey?" data-bn="আপনার যাত্রা শুরু করতে প্রস্তুত?">Ready to Start Your Journey?</h2>
+            <p data-en="Join thousands of developers and businesses already using Developer Hare" data-bn="হাজার হাজার ডেভেলপার এবং ব্যবসায় যোগ দিন যারা ইতিমধ্যে ডেভেলপার হেয়ার ব্যবহার করছেন">Join thousands of developers and businesses already using Developer Hare</p>
+            <div class="cta-buttons">
+                <a href="#showcase" class="btn btn-primary" data-en="Browse Templates" data-bn="টেমপ্লেট ব্রাউজ করুন">Browse Templates</a>
+                <a href="#contact" class="btn btn-secondary" data-en="Contact Us" data-bn="আমাদের সাথে যোগাযোগ করুন">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Developer Hare</h3>
+                    <p data-en="Bangladesh's premier marketplace for buying and selling premium website code and templates." data-bn="বাংলাদেশের প্রিমিয়ার মার্কেটপ্লেস প্রিমিয়াম ওয়েবসাইট কোড এবং টেমপ্লেট কেনা এবং বিক্রয়ের জন্য।">Bangladesh's premier marketplace for buying and selling premium website code and templates.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">📘</a>
+                        <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
+                        <a href="#" class="social-link" aria-label="GitHub">💻</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 data-en="Quick Links" data-bn="দ্রুত লিংক">Quick Links</h3>
+                    <ul>
+                        <li><a href="#features" data-en="Features" data-bn="বৈশিষ্ট্য">Features</a></li>
+                        <li><a href="#showcase" data-en="Showcase" data-bn="প্রদর্শনী">Showcase</a></li>
+                        <li><a href="#pricing" data-en="Pricing" data-bn="মূল্য">Pricing</a></li>
+                        <li><a href="#" data-en="Blog" data-bn="ব্লগ">Blog</a></li>
+                        <li><a href="#" data-en="FAQ" data-bn="প্রশ্ন">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 data-en="Legal" data-bn="আইনি">Legal</h3>
+                    <ul>
+                        <li><a href="#" data-en="Terms of Service" data-bn="সেবা পাবার শর্ত">Terms of Service</a></li>
+                        <li><a href="#" data-en="Privacy Policy" data-bn="গোপনীয়তা নীতি">Privacy Policy</a></li>
+                        <li><a href="#" data-en="Refund Policy" data-bn="রিফান্ড নীতি">Refund Policy</a></li>
+                        <li><a href="#" data-en="License" data-bn="লাইসেন্স">License</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 data-en="Contact Info" data-bn="যোগাযোগের তথ্য">Contact Info</h3>
+                    <p><strong data-en="Founder:" data-bn="প্রতিষ্ঠাতা:">Founder:</strong> Owner Shadhin</p>
+                    <p>📧 contact@developerhare.com</p>
+                    <p>📱 +880 1XXX-XXXXXX</p>
+                    <p>📍 Dhaka, Bangladesh</p>
+                    <h4 style="margin-top: 1rem;" data-en="Payment Methods" data-bn="পেমেন্ট পদ্ধতি">Payment Methods</h4>
+                    <div class="payment-methods">
+                        <span class="payment-badge">bKash</span>
+                        <span class="payment-badge">Nagad</span>
+                        <span class="payment-badge">Rocket</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Developer Hare. <span data-en="Founded by Owner Shadhin. All rights reserved." data-bn="ওনার শাধীন দ্বারা প্রতিষ্ঠিত। সর্বস্বত্ব সংরক্ষিত।">Founded by Owner Shadhin. All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Scroll to top">↑</button>
+
+    <script>
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'bn' : 'en';
+            const elements = document.querySelectorAll('[data-en]');
+            
+            elements.forEach(element => {
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = element.getAttribute(`data-${currentLang}`);
+                } else {
+                    element.textContent = element.getAttribute(`data-${currentLang}`);
+                }
+            });
+            
+            document.getElementById('langSwitch').textContent = currentLang === 'en' ? 'বাংলা' : 'English';
+        }
+
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const updateCount = () => {
+                    current += increment;
+                    if (current < target) {
+                        stat.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        stat.textContent = target + (stat.parentElement.querySelector('.stat-label').textContent.includes('Rate') ? '%' : '+');
+                    }
+                };
+                
+                updateCount();
+            });
+        }
+
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    animateStats();
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats-grid');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        const cards = document.querySelectorAll('.feature-card, .showcase-card, .step-card, .pricing-card');
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.5s ease';
+            
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+
+        console.log('%c👋 Welcome to Developer Hare!', 'color: #006A4E; font-size: 24px; font-weight: bold;');
+        console.log('%cFounded by Owner Shadhin', 'color: #F42A41; font-size: 16px;');
+        console.log('%cBangladesh\'s #1 Platform for Website Code', 'color: #00B894; font-size: 14px;');
+    </script>
+</body>
+</html>
